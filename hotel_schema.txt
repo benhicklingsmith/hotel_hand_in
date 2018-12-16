@@ -1,0 +1,98 @@
+create schema hotelbooking;
+set schema 'hotelbooking';
+
+create table customer (
+	c_no integer unique not null,
+	c_name varchar(80) not null,
+	c_email varchar(60) not null UNIQUE,
+	c_address varchar(200) not null,
+	c_cardtype varchar(2),
+	check (c_cardtype in ('V', 'MC', 'A')),
+	c_cardexp varchar(5),
+	c_cardno varchar(16),
+	primary key (c_no)
+);
+
+create table room (
+	r_no integer unique not null,
+	r_class char(5) not null,
+	check (r_class in ('std_d', 'std_t', 'sup_d', 'sup_t')),
+	r_status char(1) default 'A',
+	check (r_status in ('O', 'C', 'A', 'X')),
+	r_notes varchar(300),
+	primary key (r_no)
+);
+
+create table rates (
+	r_class char(5),
+	price decimal(6,2)
+);
+
+create table booking (
+	b_ref integer unique not null,
+	c_no integer references customer,
+	b_cost decimal(6,2),
+	b_outstanding decimal(6,2),
+	b_notes varchar(300),
+	primary key (b_ref)
+);
+
+create table roombooking (
+	r_no integer references room,
+	b_ref integer references booking,
+	checkin date not null,
+	checkout date not null,
+	primary key (r_no, b_ref)
+);
+
+CREATE OR REPLACE FUNCTION avail_query (IN DATE, IN DATE)
+RETURNS TABLE (r_no INT, r_class char(5)) AS
+$$
+BEGIN
+RETURN QUERY
+	SELECT DISTINCT room.r_no, room.r_class 
+	FROM room 
+	WHERE room.r_no 
+	NOT IN
+	( 
+	SELECT roombooking.r_no 
+	FROM roombooking  
+	JOIN room  ON roombooking.r_no = room.r_no 
+	WHERE (
+	(checkin BETWEEN $1 AND $2)  
+	OR (checkout BETWEEN $1 AND $2))
+	) 
+	AND r_status = 'A' 
+	ORDER BY room.r_no;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION insert_customer(IN INT, IN VARCHAR(80), IN VARCHAR(60), IN VARCHAR(200), IN VARCHAR(2), IN VARCHAR(5), IN VARCHAR(16))
+RETURNS VOID AS
+$$
+BEGIN
+	INSERT INTO customer VALUES ($1, $2, $3, $4, $5, $6, $7);
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION insert_booking(IN INT, IN INT, IN DECIMAL(6,2), IN DECIMAL(6,2), IN VARCHAR(300))
+RETURNS VOID AS
+$$
+BEGIN
+	INSERT INTO booking VALUES ($1, $2, $3, $4, $5);
+END;
+$$
+LANGUAGE 'plpgsql';
+
+
+
+
+
+
+
+
+
+
+

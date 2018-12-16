@@ -1,0 +1,16 @@
+{
+    "name": "hotel_website",
+    "version": "1.0.0",
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
+    "author": "dgq15hru",
+    "contributors": [],
+    "dependencies": {
+        "http-server": "^0.11.1"
+    }
+}

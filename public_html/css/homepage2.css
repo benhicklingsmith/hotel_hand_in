@@ -1,0 +1,265 @@
+.html{
+    border:none;
+    font-weight: bold;
+}
+
+body {
+    padding-top: 65px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 65px;
+    font-family: "Gill Sans", sans-serif;
+
+}
+
+.navbar{
+    background: #002C2F;
+    border: #E1916E;
+}
+
+#homeButton > img{
+    width: 75px !important;
+    vertical-align: middle;
+}
+
+.navLink{
+    color: white !important;
+    font-size: 1.60rem;
+    margin-top: 10px;
+}
+
+.navHomeLink{
+    color: #002C2F !important;
+}
+
+.glyphicon-menu-hamburger{
+    color:white;
+    border:white;
+}
+
+.glyphicon-menu-hamburger:hover{
+    color:lightgrey;
+    cursor:pointer;
+}
+
+#homeButton{
+    background: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding:0;
+}
+
+.homePageHeader{
+    font-size: 2.5em !important;
+    text-align: center;  
+    margin: 20px 0px 0px 0px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 14px;
+    color: white !important;
+    background: #002C2F;
+}
+
+.homePageHeaderRooms {
+    font-size: 2.5em !important;
+    text-align: center;  
+    margin: 20px 0px 20px 0px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 14px;
+    color: white !important;
+    background: #002C2F;
+}
+
+#myCarousel {
+    padding: 15px;
+    margin: 20px 0px 20px 0px;
+}
+
+.carousel-inner > .item > img {
+    min-width: 100%;
+    max-height: 60vh;
+}
+
+.mainRow{
+    padding: 0px !important;
+    background:#1E646E;
+}
+
+.availabilityRow{
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding:15px;
+    background: #B2A59F;
+}
+
+.availabilityButton {
+    width: 100% !important;
+    height: 40px;
+}
+
+.availabilityCaptions{
+    color:white !important;
+    font-size: 1.0em !important;
+    text-align: left !important;
+    margin-top: 0px;
+    margin-right:0px;
+    margin-bottom:0px !important;
+    margin-left:0px;
+}
+
+.submitCaption{
+    color: #B2A59F;
+    font-size: 1.0em !important;
+    text-align: left !important;
+    margin-top: 0px;
+    margin-right:0px;
+    margin-bottom:0px !important;
+    margin-left:0px;
+}
+
+.submitButton{
+    background:#1E646E;
+    border: none;
+}
+
+.homeContainer{
+    color: white;
+    background: black;
+    text-align: center;
+    margin-top:0px;
+    margin-right:0px;
+    margin-bottom:10px;
+    margin-left:0px;
+    padding:0;
+
+}
+
+.homeContainerPrimaryHeader{
+    font-size: 2.5em !important;
+    text-align: center;
+    margin-top:0px;
+    margin-right:0px;
+    margin-bottom:10px;
+    margin-left:0px;
+    padding: 10px;
+    color: white !important;
+    text-decoration: underline;
+}
+
+.aboutUsHeader{
+    font-size: 2.5em !important;
+    text-align: center;  
+    margin: 0px;
+    padding: 15px 20px 20px 20px;
+    color: white !important;
+    background: #002C2F;
+}
+
+.aboutUs{
+    font-size: 2rem;
+    padding: 0px 10px 10px 10px; 
+    background: #002C2F;
+    color: white;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+}
+
+.roomHeader{
+    font-size: 2.5em !important;
+    text-align: center;  
+    margin-top:15px;
+    margin-right:0px;
+    margin-bottom:15px;
+    margin-left:0px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 14px;
+    color: white !important;
+    background: #B2A59F;
+}
+
+.roomContainer{
+    padding-left:30px;
+    padding-right:30px;
+    background: white;
+}
+
+.roomTitle{
+    margin:0px;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+}
+
+.roomTypeTitle{
+    text-align: left;
+    background:#B2A59F;
+    color:black;
+    padding: 0px 10px 0px 10px;
+    margin: 10px 0px 0px 0px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.roomContainer > img{
+    width:100%;
+}
+
+.supremeInfo{
+    text-align: left;
+    color:black;
+    padding: 0px 10px 0px 10px;
+    margin: 10px 0px 0px 0px;   
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.doubleInfo{
+    text-align: left;
+    color:black;
+    padding: 0px 10px 0px 10px;
+    margin: 10px 0px 10px 0px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.facilityContainer{
+    padding:0px;
+    background:#1E646E;
+}
+
+.facilityImage{
+    width: 100% !important;
+    padding: 0px 0px 20px 0px;
+}
+
+.facilityTitle{
+    margin:0px;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    color:white;
+}
+
+.facilityText{
+    margin:0px;
+    padding: 0px 10px 10px 10px;
+    text-align: center;
+    top: 50%;
+    color:white;
+    font-size: 1.60em;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.thingToCenter{
+    align: center;
+}
+
