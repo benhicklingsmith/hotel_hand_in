@@ -4,7 +4,7 @@
 }
 
 body {
-    padding-top: 65px;
+    padding-top: 0px;
     padding-right: 0px;
     padding-left: 0px;
     padding-bottom: 65px;
@@ -71,6 +71,10 @@ body {
     padding-top: 14px;
     color: white !important;
     background: #002C2F;
+}
+
+.buffer{
+    margin-bottom: 65px;
 }
 
 #myCarousel {

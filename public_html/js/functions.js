@@ -132,10 +132,10 @@ function submitPayment() {
         var paymentData = {};
         paymentData.c_name = $('#c_name').val();
         paymentData.c_email = $('#c_email').val();
-        paymentData.c_address=$('#addr_line').val() + ", " + $('#city').val() + ", " + $('#postcode').val();
-        paymentData.c_cardtype=$('#c_cardtype').val();
-        paymentData.c_cardexp=$('#c_cardexp').val();
-        paymentData.c_cardno=$('#c_cardno').val();
+        paymentData.c_address = $('#addr_line').val() + ", " + $('#city').val() + ", " + $('#postcode').val();
+        paymentData.c_cardtype = $('#c_cardtype').val();
+        paymentData.c_cardexp = $('#c_cardexp').val();
+        paymentData.c_cardno = $('#c_cardno').val();
 //        paymentData.c_name = "fred flintstone";
 //        paymentData.c_email = "bigstone@gmail.com";
 //        paymentData.c_address = "seriously stoney house, stonesville sv69 3bd";
@@ -373,9 +373,13 @@ function payNow() {
 }
 
 function navBarClicked(id) {
-    $('.thing_to_collapse').collapse('hide');
-    $('#navbar').collapse('hide');
-    $('#' + id).collapse('show');
+    try {
+        $('.thing_to_collapse').collapse('hide');
+        $('#navbar').collapse('hide');
+        $('#' + id).collapse('show');
+    } catch (e) {
+        console.log("not in mobile mode");
+    }
 }
 
 

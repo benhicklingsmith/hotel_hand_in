@@ -26,23 +26,24 @@ and open the template in the editor.
     </head>
 
     <body>
-        <div class="container mainRow">
 
+        <div class="container mainRow">
+            <div class="buffer" id="top"></div>
             <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
                             <span class="glyphicon glyphicon-menu-hamburger"></span>
                         </button>
-                        <a class="navbar-brand nav-link navHomeLink" id="homeButton" href="#aboutUsSectionBM"><img src="images/hotellogo.jpg" alt="Hotel Bishee Barnabee" id="navLogo"></a>
+                        <a class="navbar-brand nav-link navHomeLink" id="homeButton" href="#top"><img src="images/hotellogo.jpg" alt="Hotel Bishee Barnabee" id="navLogo"></a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="nav navbar-nav">
-                            <li><a class="nav-link navLink" onclick="navBarClicked(navbar)" href="#roomSectionBM">Rooms</a></li>
-                            <li><a class="nav-link navLink" onclick="navBarClicked(navbar)" href="">My Bookings</a></li>
-                            <li><a class="nav-link navLink" onclick="navBarClicked(navbar)" href="#facilitySectionBM">Facilities</a></li>
-                            <li><a class="nav-link navLink" onclick="navBarClicked(navbar)" href="#localAttraction">Local Attractions</a></li>
-                            <li><a class="nav-link navLink" onclick="navBarClicked(navbar)" href="#contactUsBM">Contact Us</a></li>
+                            <li><a class="nav-link navLink" onclick="navBarClicked(navbar)" href="#rooms-buffer">Rooms</a></li>
+                            <li><a class="nav-link navLink" onclick="navBarClicked(navbar)" href="#bookings-buffer">My Bookings</a></li>
+                            <li><a class="nav-link navLink" onclick="navBarClicked(navbar)" href="#facilities-buffer">Facilities</a></li>
+                            <li><a class="nav-link navLink" onclick="navBarClicked(navbar)" href="#localattr-buffer">Local Attractions</a></li>
+                            <li><a class="nav-link navLink" onclick="navBarClicked(navbar)" href="#contact-buffer">Contact Us</a></li>
                         </ul>
                     </div> 
                 </div>
@@ -135,7 +136,8 @@ and open the template in the editor.
                 </div>
 
                 <div class="container-fluid">
-                    <h1 class="homePageHeaderRooms">
+                    <div class="buffer" id="rooms-buffer"></div>
+                    <h1 class="homePageHeaderRooms" id="homePageHeaderRooms">
                         Rooms       
                     </h1>
                 </div>
@@ -172,6 +174,7 @@ and open the template in the editor.
                 </div>
 
                 <div class="container-fluid">
+                    <div class="buffer" id="facilities-buffer"></div>
                     <h1 class="homePageHeaderRooms">
                         Relaxing at Hotel Bishee Barnabee
                     </h1>
@@ -223,9 +226,10 @@ and open the template in the editor.
                         </div>               
                     </div>
                 </div>
-                
-               
+
+
                 <div class="container-fluid">
+                    <div class="buffer" id="localattr-buffer"></div>
                     <h1 class="aboutUsHeader">
                         Local Attractions         
                     </h1>
@@ -247,93 +251,95 @@ and open the template in the editor.
 
                 <!-- find my bookings-->
                 <!--                <div class="collapse thing_to_collapse" >-->
-                <div class="container" id="findMyBooking">
-                    <div class ="row">
-                        <div class="well">
-                            <form class="form-horizontal" id="payment_content"  data-toggle="validator">
-                                <label>If you would like to view or make any changes to a previous booking please enter your details here: </label> 
-                                <div class="form-row">
-                                    <div class="row">
-                                        <div class="form-group col-md-9">
-                                            <div class="row">
-                                                <label for="b_ref" class="control-label col-md-6">Booking Reference Number: </label>
-                                                <div class="input-group col-md-6">
-                                                    <input id="b_ref" placeholder="booking ref" class="form-control"  maxlength="5" type="text" required>
+                <div class="container-fluid" id="findMyBooking">
+                    <div class="buffer" id="bookings-buffer"></div>
+                    <h1 class="aboutUsHeader">
+                        View My Bookings         
+                    </h1>
+                    <div class ="row aboutUs">
+                        <form class="form-horizontal" id="booking_ref"  data-toggle="validator">
+                            <label>If you would like to view or make any changes to a previous booking please enter your details here: </label> 
+                            <div class="form-row">
+                                <div class="row">
+                                    <div class="form-group col-md-9 col-sm-6" >
+                                        <div class="row">
+                                            <label for="b_ref" class="control-label col-md-6">Booking Reference Number: </label>
+                                            <div class="input-group col-md-6">
+                                                <input id="b_ref" placeholder="booking ref" class="form-control"  maxlength="5" type="text" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3 col-sm-6">
+                                        <button type="button" class="btn btn-primary" onclick="findBooking()">Submit</button>
+                                    </div>
+
+                                    <div class="modal fade" id="findBookingError" tabindex="-1" role="dialog" aria-labelledby="addOrRemoveCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h2 class="modal-title" id="addOrRemoveLongTitle">Oops!</h2>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            Oops, it appears you are currently trying to make a new booking, please complete any new bookings before viewing a previous booking.
+                                                        </div>
+                                                        <div class="col-md-3 thingToAlign">
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close and Continue New Booking</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            Not currently making a booking? No worries, seems the problem was our fault! 
+                                                            Please click this button to resolve the issue and try searching for your booking again. 
+                                                            If the problem persists, please email or call us using the contact details on out contacts page.
+                                                        </div>
+                                                        <div class="col-md-3 thingToCenter">
+                                                            <button type="button" class="btn btn-warning" data-dismiss="modal" data-toggle="modal" data-target="#warningAboutToDelete">Resolve Issue</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-3">
-                                            <button type="button" class="btn btn-primary" onclick="findBooking()">Submit</button>
-                                        </div>
+                                    </div>
 
-                                        <div class="modal fade" id="findBookingError" tabindex="-1" role="dialog" aria-labelledby="addOrRemoveCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h2 class="modal-title" id="addOrRemoveLongTitle">Oops!</h2>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-md-9">
-                                                                Oops, it appears you are currently trying to make a new booking, please complete any new bookings before viewing a previous booking.
-                                                            </div>
-                                                            <div class="col-md-3 thingToAlign">
-                                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close and Continue New Booking</button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-9">
-                                                                Not currently making a booking? No worries, seems the problem was our fault! 
-                                                                Please click this button to resolve the issue and try searching for your booking again. 
-                                                                If the problem persists, please email or call us using the contact details on out contacts page.
-                                                            </div>
-                                                            <div class="col-md-3 thingToCenter">
-                                                                <button type="button" class="btn btn-warning" data-dismiss="modal" data-toggle="modal" data-target="#warningAboutToDelete">Resolve Issue</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-
-                                                    </div>
+                                    <div class="modal fade" id="warningAboutToDelete" tabindex="-1" role="dialog"  aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h2 class="modal-title" id="addOrRemoveLongTitle2">Warning</h2>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
                                                 </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="modal fade" id="warningAboutToDelete" tabindex="-1" role="dialog"  aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h2 class="modal-title" id="addOrRemoveLongTitle2">Warning</h2>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-md-9">
-                                                                Warning - If you click this button and you are in the middle of making a new booking, 
-                                                                all information about the current booking will be lost. Only click resolve if you are 
-                                                                certain you are not making a booking, otherwise to exit, click the 'X' in the top right of this box.
-                                                            </div>
-                                                            <div class="col-md-3 thingToCenter">
-                                                                <button type="button" class="btn btn-warning" data-dismiss="modal" onclick="resolveBookingSearch()">Resolve</button>
-                                                            </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            Warning - If you click this button and you are in the middle of making a new booking, 
+                                                            all information about the current booking will be lost. Only click resolve if you are 
+                                                            certain you are not making a booking, otherwise to exit, click the 'X' in the top right of this box.
                                                         </div>
-
+                                                        <div class="col-md-3 thingToCenter">
+                                                            <button type="button" class="btn btn-warning" data-dismiss="modal" onclick="resolveBookingSearch()">Resolve</button>
+                                                        </div>
                                                     </div>
-                                                    <div class="modal-footer">
 
-                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
@@ -344,6 +350,7 @@ and open the template in the editor.
                         <div class = "row">
                             <div class = "well" >
                                 <div class="row">
+
                                     <h3 id="myBookingHeader3">Booking</h3>
                                     <div class="table-wrapper-scroll-y">
                                         <table  class="table table-wrapper-scroll-y table-striped table-bordered" cellspacing="0">
@@ -622,13 +629,15 @@ and open the template in the editor.
         <footer>
             <div class="collapse in collapse-print">
                 <div class="container-fluid">
+                    <div class="buffer" id="contact-buffer"></div>
                     <h1 class="aboutUsHeader col-xs-12">
                         Contact Us         
                     </h1>
                     <p class="aboutUs col-xs-12 contactSection" id="contactUsBM">
                         Email: hotelBB@hotel.com <br>
                         Phone: 01603 440016 <br>
-                        Address: Hotel Bishee Barnabee, Bishee Barnabee Way <br> Norwich, Norfolk, NR2 2BD
+                        Address: Hotel Bishee Barnabee, Bishee Barnabee Way <br> 
+                        Norwich, Norfolk, NR2 2BD
                     </p>
                     <iframe class="col-xs-12" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2422.0816010665653!2d1.239207780902908!3d52.62236947993244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d9e1260ee4244d%3A0xadf22b671f4fb0fe!2sNorwich+NR4+7TJ!5e0!3m2!1sen!2suk!4v1544614009545" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
