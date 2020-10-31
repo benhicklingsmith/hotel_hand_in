@@ -1,4 +1,5 @@
 var http = require('http');
+var fs = require('fs')
 var user = 'postgres';
 var host = 'localhost';
 var database ='hotel';
@@ -17,6 +18,13 @@ http.createServer(function (req, res) {
     // add this line to address the cross-domain XHR issue.
     res.setHeader('Access-Control-Allow-Origin', '*');
     switch (req.url) {
+        case '/':
+            if (req.method == 'GET') {
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                fs.createReadStream('../public_html/index.html').pipe(res);
+                console.log("sent")
+            }
+            break;
         case '/avail_form':
             if (req.method == 'POST') {
                 console.log("data sent to server");
@@ -287,7 +295,19 @@ http.createServer(function (req, res) {
             }
             break;
         default:
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end('error');
+            console.log('../public_html/' + req.url)
+            fs.readFile('../public_html/' + req.url, function (err,data) {
+                if (err) {
+                    res.writeHead(404);
+                    res.end(JSON.stringify(err));
+                    return;
+                }
+                res.writeHead(200);
+                res.end(data);
+            });
     }
 }).listen(8081); // listen to port 8081
+
+
+
+
