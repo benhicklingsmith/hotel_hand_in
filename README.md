@@ -8,27 +8,39 @@ The task was to develop a fully functioning website for a hotel with a working f
 
 
 Key Lessons Learnt
+
 -> Server is a mess - explore using Express for the next project we undertake.
+
 -> Loading all code at once made the index file large and tricky to make changes to as the project developed. Possibly investigate dynamic loading of code in future.
+
 -> CSS is a nightmare.
 
 ## Dependencies
 
 (Required)
+
 Node.js
 
 (Optional)
+
 Postgresql
 
 ## Usage
 
-To view the website:
+### To view the website:
+
 Download code
+
 Open terminal and navigate to /server
+
 Run ```node server.js```
+
 Open browser and navigate to localhost:8081
 
-To use with backend:
-Create a new postgresbase using the hotel_schema.txt file.
-Edit the database information in the top of the server.js file
+### To use with backend:
+
+Create a new postgres database using the hotel_schema.txt file.
+
+Edit the database information in the top of the server.js file.
+
 Restart server.js if it is already running.
