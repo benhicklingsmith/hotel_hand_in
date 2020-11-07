@@ -1,11 +1,10 @@
-# hotel_website_webdev_group_project
+# hotel_website
 
 ## Overview
 
 Group project for UEA MSc Computer Science website development coursework (3 Students). Website was developed over the course of about 2-3 weeks along side lectures and other assigned coursework at the time.
 
-The task was to develop a fully functioning website for a hotel with a working front and back end capable of allowing guests to book a room, view their booking and manage their booking. We had to consider edge cases when making their booking such as offering alternative options if their original request was unavailable. We also had to allow them to make payments at the end of their stay and the backend had to be capable of offering a staff portal for hotel management tasks such as viewing the status of every room and managing all bookings. 
-
+The task was to develop a fully functioning website for a hotel with a working front and back end capable of allowing guests to book a room, view their booking and manage their booking. We had to consider edge cases when making their booking such as offering alternative options if their original request was unavailable. We also had to allow them to make payments at the end of their stay and the backend had to be capable of offering a staff portal for hotel management tasks such as viewing the status of every room and managing all bookings.
 
 Key Lessons Learnt
 
@@ -33,7 +32,7 @@ Download code
 
 Open terminal and navigate to /server
 
-Run ```node server.js```
+Run `node server.js`
 
 Open browser and navigate to localhost:8081
 
@@ -44,3 +43,9 @@ Create a new postgres database using the hotel_schema.txt file.
 Edit the database information in the top of the server.js file.
 
 Restart server.js if it is already running.
+
+## Images
+
+|              Welcome Page               |                 Footer                 |
+| :-------------------------------------: | :------------------------------------: |
+| ![welcome page](/resources/welcome.png) | ![welcome page](/resources/footer.png) |
